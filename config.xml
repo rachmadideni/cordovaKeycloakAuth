@@ -6,6 +6,21 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
+    <preference name="permissions" value="none" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
+    <access origin="*" />
+    <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
+    <universal-links>
+        <host name="localhost" scheme="http">
+            <path event="keycloak" url="/" />
+        </host>
+    </universal-links>
+    <plugin name="cordova-plugin-browsertabs" />
+    <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
+    <engine name="ios" spec="^4.5.4" />
+    <engine name="android" spec="^6.4.0" />
+    <hook src="scripts/prebuild.js" type="before_prepare" />
 </widget>

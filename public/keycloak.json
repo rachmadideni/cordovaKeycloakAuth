@@ -1,0 +1,8 @@
+{
+  "realm": "master",
+  "url": "https://id.neux.io/auth/",
+  "ssl-required": "external",
+  "resource": "cordova",
+  "public-client": true,
+  "confidential-port": 0
+}

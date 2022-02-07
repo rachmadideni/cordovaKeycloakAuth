@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import "./global.css";
 import "./App.css";
 
 function App() {
   const handleLogin = (evt) => {
     evt.preventDefault();
+    // alert(1);
   };
   return (
     <div className="layout flex-col flex ml-auto mr-auto justify-center items-center w-full lg:w-2/3 md:w-3/5">

@@ -28,10 +28,10 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;500;700&display=swap" rel="stylesheet"> -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -47,5 +47,74 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <script src="cordova.js" type="text/javascript"></script>
+    <!-- <script type="text/javascript" charset="utf-8" src="keycloak.js"></script> -->
+    <script type="text/javascript" charset="utf-8">
+    // var keycloak = new Keycloak();
+
+    // keycloak.onAuthSuccess = updateState;
+    // keycloak.onAuthRefreshSuccess = updateState;
+    // keycloak.onAuthLogout = updateState;
+
+    
+
+    function updateState() {
+      // console.log(keycloak);
+        if (keycloak.authenticated) {
+            // document.getElementById('authenticated').style.display = 'block';
+            // document.getElementById('not-authenticated').style.display = 'none';
+
+            // document.getElementById('subject').innerText = keycloak.subject;
+            // document.getElementById('username').innerText = keycloak.idTokenParsed.preferred_username;
+            // document.getElementById('tokenExpires').innerText = new Date(keycloak.tokenParsed.exp * 1000).toLocaleString();
+            // document.getElementById('tokenRefreshExpires').innerText = new Date(keycloak.refreshTokenParsed.exp * 1000).toLocaleString();
+            // document.getElementById('token').innerText = JSON.stringify(keycloak.tokenParsed, null, '  ');
+            // document.getElementById('idToken').innerText = JSON.stringify(keycloak.idTokenParsed, null, '  ');
+            console.log('username', keycloak.idTokenParsed.preferred_username);
+
+        } else {
+            console.log('keycloak is not authenticated!')
+            // keycloak.login();
+            // document.getElementById('authenticated').style.display = 'none';
+            // document.getElementById('not-authenticated').style.display = 'block';
+        }
+    }
+
+    function error(err) {
+        // document.getElementById('authenticated').style.display = 'none';
+        // document.getElementById('not-authenticated').style.display = 'block';
+        // document.getElementById('error').innerText = 'Failed to initialize Keycloak adapter';
+        console.log('Failed to initialize Keycloak adapter', err)
+    }
+
+    document.addEventListener("deviceready", function() {
+        // keycloak.init({
+        //   adapter: 'cordova-native',
+        //   responseMode: 'query',
+        //   onLoad: 'check-sso',
+        //   redirectUri: 'android-app://org.keycloak.examples.cordova/https/keycloak-cordova-example.github.io/login'
+        // }).then(updateState).catch(error);
+
+        // keycloak.init({
+        //   url: 'https://id.neux.io/auth/',
+        //   realm: 'master',
+        //   clientId: 'com.musicascode'
+        // }).then(updateState).catch(error);
+    }, false);
+    
+    /*
+    var keycloak = new Keycloak();
+    function updateState(callback){
+      console.log('updateState callback : ', callback)
+    }
+    keycloak.init({
+      adapter: 'cordova-native',
+      responseMode: 'query',
+      onLoad: 'check-sso', // check-sso will only authenticate the client if the user is already logged-in, if the user is not logged-in the browser will be redirected back to the application and remain unauthenticated
+      redirectUri: 'android-app://org.keycloak.examples.cordova/https/keycloak-cordova-example.github.io/login'
+      // redirectUri: 'android-app://org.keycloak.examples.cordova/https/keycloak-cordova-example.github.io/login'
+    }).then(updateState).catch((err) => console.log('err:', err));
+    */
+    </script>
+
   </body>
 </html>
