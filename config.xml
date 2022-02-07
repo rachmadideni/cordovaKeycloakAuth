@@ -7,7 +7,7 @@
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
-    <preference name="AndroidLaunchMode" value="singleInstance" />
+    <!-- <preference name="AndroidLaunchMode" value="singleInstance" /> -->
     <access origin="*" />
     <allow-navigation href="*" />
     <allow-intent href="http://*/*" />
